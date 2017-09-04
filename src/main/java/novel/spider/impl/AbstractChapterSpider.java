@@ -18,29 +18,26 @@ import org.jsoup.select.Elements;
 
 import novel.spider.entity.*;
 import novel.spider.interfaces.*;
+import novel.spider.util.NovelSiteEnum;
+import novel.spider.util.NovelSpiderUtil;
 
-public class AbstractChapterSpider implements IChapterSpider {
-	protected String crawl(String url) throws Exception {
-		try(CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-				CloseableHttpResponse closeableHttpResponse = httpClient.execute(new HttpGet(url));	) {
-			return EntityUtils.toString(closeableHttpResponse.getEntity());
-		}catch (Exception e) {
-			return "ץȡʧ�ܣ�";
-		}
-	}
+public class AbstractChapterSpider extends AbstractSpider implements IChapterSpider {
+	
 
 	@Override
 	public List<Chapter> getChapter(String url) {
 		try {
 			String result = crawl(url);
 			Document doc = Jsoup.parse(result);
-			Elements as = doc.select("#list dd a");
+			doc.setBaseUri(url);
+			Elements as = doc.select(NovelSpiderUtil.getContext(NovelSiteEnum.getEnumByUrl(url)).get("chapterList_selector"));
 			List<Chapter> chapters = new ArrayList<Chapter>();
 			for(Element e : as) {
 				//System.out.println(e);
 				Chapter chapter = new Chapter();
 				chapter.setTitle(e.text());
-				chapter.setUrl("http://www.xs.la" + e.attr("href"));
+				//chapter.setUrl("http://www.xs.la" + e.attr("href"));
+				chapter.setUrl(e.absUrl("href"));
 				chapters.add(chapter);
 			}
 			return chapters;

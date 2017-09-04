@@ -1,0 +1,4 @@
+D:\javaeeWorkspace\novelCrawl\src\main\java\novel\spider\interfaces\IChapterSpider.java
+D:\javaeeWorkspace\novelCrawl\src\main\java\novel\spider\entity\Chapter.java
+D:\javaeeWorkspace\novelCrawl\src\main\java\novel\spider\impl\AbstractChapterSpider.java
+D:\javaeeWorkspace\novelCrawl\src\main\java\novel\spider\impl\DefaultChapterSpider.java

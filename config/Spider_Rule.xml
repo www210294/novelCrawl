@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sites>
+	<site>
+	 	<title>顶点小说</title>
+	 	<charset>gbk</charset>
+	 	<url>http://www.23wx.com</url>
+	 	<chapterList_selector>#at td a</chapterList_selector>
+	 	<chapterList_selector>#list dd a</chapterList_selector>
+	 	<chapter_detail_title_selector>.bookname h1,0</chapter_detail_title_selector>
+	 	<chapter_datail_content_selector>#content</chapter_datail_content_selector>
+	 	<chapter_datail_prev_selector>#pager_prev,0</chapter_datail_prev_selector>
+	 	<chapter_datail_next_selector>#pager_next,0</chapter_datail_next_selector>
+	</site>
+	<site>
+	 	<title>笔趣阁</title>
+	 	<charset>utf-8</charset>
+	 	<url>http://www.xs.la</url>
+	 	<chapterList_selector>#list dd a</chapterList_selector>
+	 	<chapter_detail_title_selector>.bookname h1,0</chapter_detail_title_selector>
+	 	<chapter_datail_content_selector>#content</chapter_datail_content_selector>
+	 	<chapter_datail_prev_selector>#pager_prev,0</chapter_datail_prev_selector>
+	 	<chapter_datail_next_selector>#pager_next,0</chapter_datail_next_selector>
+	</site>
+	<site>
+	 	<title>豆瓣阅读</title>
+	 	<charset>utf-8</charset>
+	 	<url>http://2bgif.com</url>
+	 	<chapterList_selector>#article-description td a</chapterList_selector>
+	 	<chapter_detail_title_selector>.breadcrumb li,2</chapter_detail_title_selector>
+	 	<chapter_datail_content_selector>#content</chapter_datail_content_selector>
+	 	<chapter_datail_prev_selector>.previous a,0</chapter_datail_prev_selector>
+	 	<chapter_datail_next_selector>.next a,0</chapter_datail_next_selector>
+	</site>
+	
+</sites>
