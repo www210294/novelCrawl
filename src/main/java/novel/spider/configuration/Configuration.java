@@ -2,7 +2,7 @@ package novel.spider.configuration;
 
 import java.io.Serializable;
 /*
- * 配置下载线程数量
+ * configure the number of download thread 
  */
 public class Configuration implements Serializable {
 	private static final int DEFAULT_SIZE = 100;
