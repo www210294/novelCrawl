@@ -4,11 +4,14 @@ import java.util.List;
 
 import org.junit.*;
 
+import novel.spider.configuration.Configuration;
 import novel.spider.entity.Chapter;
 import novel.spider.impl.DefaultChapterDetailSpider;
 import novel.spider.impl.DefaultChapterSpider;
+import novel.spider.impl.NovelDownload;
 import novel.spider.interfaces.IChapterDetailSpider;
 import novel.spider.interfaces.IChapterSpider;
+import novel.spider.interfaces.INovelDownload;
 import novel.spider.util.NovelSiteEnum;
 import novel.spider.util.NovelSpiderUtil;
 
@@ -33,6 +36,21 @@ public class TestCase {
 		IChapterDetailSpider chapterDetailSpider = new DefaultChapterDetailSpider();
 		System.out.println(chapterDetailSpider.getChapterDetail("http://www.xs.la/0_5/1408.html"));
 	}
+	
+	@Test
+	public void testDownload() {
+		INovelDownload download = new NovelDownload();
+		Configuration configuration = new Configuration();
+		configuration.setPath("d:/novel");
+		configuration.setSize(100);
+		System.out.println(download.download("http://www.xs.la/0_5/", configuration));;
+		
+	}
+	@Test 
+	public void testMerge() {
+		NovelSpiderUtil.mergeFiles("d:/novel", null, false);
+	}
+
 
 
 }

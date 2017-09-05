@@ -16,7 +16,7 @@ public abstract class AbstractChapterDetailSpider extends AbstractSpider impleme
 		try {
 			String result = super.crawl(url);
 			//.replace("<br />", "\n").replace("<br/>", "\n")
-			Document doc = Jsoup.parse(result.replace("&nbsp;", "  ").replace("<br />", "HUANHANG").replace("<br/>", "HUANHANG"));
+			Document doc = Jsoup.parse(result.replace("&nbsp;", " ").replace("<br />", "${line}").replace("<br/>", "${line}").replace("<br>", "${line}"));
 			doc.setBaseUri(url);
 			Map<String, String> contexts = NovelSpiderUtil.getContext(NovelSiteEnum.getEnumByUrl(url));
 			
@@ -27,7 +27,7 @@ public abstract class AbstractChapterDetailSpider extends AbstractSpider impleme
 			detail.setTitle(doc.select(splits[0]).get(Integer.parseInt(splits[1])).text());
 			
 			String contentSelector = contexts.get("chapter_datail_content_selector");
-			detail.setContent(doc.select(contentSelector).first().text().replace("HUANHANG", "\n"));
+			detail.setContent(doc.select(contentSelector).first().text().replace("${line}", "\n"));
 			
 			String preSelector = contexts.get("chapter_datail_prev_selector");
 			splits = preSelector.split("\\,");

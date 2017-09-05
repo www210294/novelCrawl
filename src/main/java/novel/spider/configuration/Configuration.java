@@ -4,7 +4,15 @@ import java.io.Serializable;
 
 public class Configuration implements Serializable {
 	private static final int DEFAULT_SIZE = 100;
+	private static final int DEFAULT_TRYTIMES = 3;
 	private String path;
+	private int tryTimes;
+	public int getTryTimes() {
+		return tryTimes;
+	}
+	public void setTryTimes(int tryTimes) {
+		this.tryTimes = tryTimes;
+	}
 	public String getPath() {
 		return path;
 	}
@@ -20,5 +28,6 @@ public class Configuration implements Serializable {
 	private int size;
 	public Configuration() {
 		this.size = DEFAULT_SIZE;
+		this.tryTimes = DEFAULT_TRYTIMES;
 	}
 }
